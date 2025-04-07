@@ -1,2 +1,2 @@
-# docWordcount_app
-counts the number of words in a word document
+# Essay Checkr
+verify essay submissions against word count criteria.
