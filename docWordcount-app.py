@@ -54,13 +54,17 @@ if uploaded_file is not None:
         
         # Word count conditional validation and handling with colored messages
         if word_count < 250:
+            st.subheader("Word Count")
+            st.write(f"Total words: {word_count}")
             st.markdown("<span style='color:red;'>Insufficient words found in document.</span>", unsafe_allow_html=True)
             logging.info("Insufficient words found in document (word_count=%d).", word_count)
         elif word_count > 300000000000:
+            st.subheader("Word Count")
+            st.write(f"Total words: {word_count}")
             st.markdown("<span style='color:red;'>Document exceeds word limit.</span>", unsafe_allow_html=True)
             logging.info("Document exceeds word limit (word_count=%d).", word_count)
         else:
-            st.markdown("<span style='color:green;'>Sufficient words found in document.</span>", unsafe_allow_html=True)
             st.subheader("Word Count")
             st.write(f"Total words: {word_count}")
+            st.markdown("<span style='color:green;'>Sufficient words found in document.</span>", unsafe_allow_html=True)
             logging.info("Sufficient words found in document (word_count=%d).", word_count)
