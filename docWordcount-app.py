@@ -8,9 +8,9 @@ import logging
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s: %(message)s')
 
 # displays name of webapp
-st.title("ESSAY WORD COUNT VALIDATOR!")
-st.write("Upload your essay docx, to extract its text and count the words.")
-st.subheader("Words should be between 250 and above.")
+st.title("DOCUMENT WORD COUNTER!")
+st.write("Upload your docx, to extract its text and count the words.")
+st.subheader("Words should be 250 and above.")
 
 # Function to read the uploaded file
 def read_file(uploaded_file):
