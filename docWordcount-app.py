@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s: %(m
 # displays name of webapp
 st.title("ESSAY WORD COUNT VALIDATOR!")
 st.write("Upload your essay docx, to extract its text and count the words.")
-st.subheader("Words should be between 250 and 3000.")
+st.subheader("Words should be between 250 and above.")
 
 # Function to read the uploaded file
 def read_file(uploaded_file):
@@ -55,10 +55,10 @@ if uploaded_file is not None:
         # Word count conditional validation and handling with colored messages
         if word_count < 250:
             st.markdown("<span style='color:red;'>Submission is not allowed due to insufficient words.</span>", unsafe_allow_html=True)
-            logging.info("Submission rejected: insufficient words (word_count=%d).", word_count)
-        elif word_count > 3000:
+            logging.info("Insufficient words found in document (word_count=%d).", word_count)
+        elif word_count > 300000000000:
             st.markdown("<span style='color:red;'>Document exceeds word limit.</span>", unsafe_allow_html=True)
-            logging.info("Submission rejected: document exceeds word limit (word_count=%d).", word_count)
+            logging.info("Sufficient words found in Document (word_count=%d).", word_count)
         else:
             st.markdown("<span style='color:green;'>Document accepted and submitted successfully.</span>", unsafe_allow_html=True)
             st.subheader("Word Count")
