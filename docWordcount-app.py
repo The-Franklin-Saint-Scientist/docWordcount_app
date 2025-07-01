@@ -39,10 +39,10 @@ uploaded_file = st.file_uploader("Upload a file", type=["txt", "docx", "pdf"])
 
 if uploaded_file is not None:
     logging.info("User uploaded file with type: %s", uploaded_file.type)
-    if st.button("Submit"):
-        logging.info("Submit button clicked")
+    if st.button("Count!"):
+        logging.info("Count button clicked")
         # Simulate a progress bar for file upload and processing
-        with st.spinner("Processing your document..."):
+        with st.spinner("Counting the words..."):
             progress = st.progress(0)
             for percent_complete in range(100):
                 time.sleep(0.02)  # Adjust sleep time as needed for the simulation
@@ -54,13 +54,13 @@ if uploaded_file is not None:
         
         # Word count conditional validation and handling with colored messages
         if word_count < 250:
-            st.markdown("<span style='color:red;'>Submission is not allowed due to insufficient words.</span>", unsafe_allow_html=True)
+            st.markdown("<span style='color:red;'>Insufficient words found in document.</span>", unsafe_allow_html=True)
             logging.info("Insufficient words found in document (word_count=%d).", word_count)
         elif word_count > 300000000000:
             st.markdown("<span style='color:red;'>Document exceeds word limit.</span>", unsafe_allow_html=True)
-            logging.info("Sufficient words found in Document (word_count=%d).", word_count)
+            logging.info("Document exceeds word limit (word_count=%d).", word_count)
         else:
-            st.markdown("<span style='color:green;'>Document accepted and submitted successfully.</span>", unsafe_allow_html=True)
+            st.markdown("<span style='color:green;'>Sufficient words found in document.</span>", unsafe_allow_html=True)
             st.subheader("Word Count")
             st.write(f"Total words: {word_count}")
-            logging.info("Submission accepted: Document processed successfully (word_count=%d).", word_count)
+            logging.info("Sufficient words found in document (word_count=%d).", word_count)
